@@ -1,0 +1,51 @@
+<svg width="1200" height="680" viewBox="0 0 1200 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">FrameForge architecture diagram</title>
+  <desc id="desc">Browser-only flow from video file selection to object URL preview, canvas enhancement, MediaRecorder export, and downloadable file.</desc>
+  <rect width="1200" height="680" rx="8" fill="#F7FAFC"/>
+  <text x="64" y="72" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#172026">FrameForge architecture</text>
+  <text x="64" y="108" font-family="Inter, Arial, sans-serif" font-size="16" fill="#60717A">Everything happens in the browser. No upload step, server queue, API key, or telemetry path.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#0C8EA0"/>
+    </marker>
+  </defs>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="64" y="176" width="214" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="92" y="216" font-size="17" font-weight="800" fill="#172026">Video file</text>
+    <text x="92" y="248" font-size="13" fill="#60717A">Selected with the File API</text>
+    <text x="92" y="276" font-size="13" fill="#60717A">Held as a browser object URL</text>
+    <rect x="354" y="176" width="214" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="382" y="216" font-size="17" font-weight="800" fill="#172026">Preview loop</text>
+    <text x="382" y="248" font-size="13" fill="#60717A">HTML video metadata</text>
+    <text x="382" y="276" font-size="13" fill="#60717A">Before and after canvases</text>
+    <rect x="644" y="176" width="214" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="672" y="216" font-size="17" font-weight="800" fill="#172026">Enhancement pass</text>
+    <text x="672" y="248" font-size="13" fill="#60717A">Canvas scaling</text>
+    <text x="672" y="276" font-size="13" fill="#60717A">Contrast and edge tuning</text>
+    <rect x="934" y="176" width="214" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="962" y="216" font-size="17" font-weight="800" fill="#172026">Export stream</text>
+    <text x="962" y="248" font-size="13" fill="#60717A">Canvas capture stream</text>
+    <text x="962" y="276" font-size="13" fill="#60717A">MediaRecorder output</text>
+    <path d="M278 242h66" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M568 242h66" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M858 242h66" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <rect x="204" y="404" width="242" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="232" y="444" font-size="17" font-weight="800" fill="#172026">Capability checks</text>
+    <text x="232" y="476" font-size="13" fill="#60717A">MediaRecorder support</text>
+    <text x="232" y="504" font-size="13" fill="#60717A">Canvas capture support</text>
+    <rect x="518" y="404" width="242" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="546" y="444" font-size="17" font-weight="800" fill="#172026">Progress state</text>
+    <text x="546" y="476" font-size="13" fill="#60717A">Elapsed time and ETA</text>
+    <text x="546" y="504" font-size="13" fill="#60717A">Pause, resume, cancel</text>
+    <rect x="832" y="404" width="242" height="132" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
+    <text x="860" y="444" font-size="17" font-weight="800" fill="#172026">Download URL</text>
+    <text x="860" y="476" font-size="13" fill="#60717A">Blob result</text>
+    <text x="860" y="504" font-size="13" fill="#60717A">Revoked on next export</text>
+    <path d="M1041 308v43c0 42-34 76-76 76H760" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M639 404v-39c0-31 25-56 56-56h49" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M446 470h62" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+    <path d="M760 470h62" stroke="#0C8EA0" stroke-width="4" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="64" y="594" width="1084" height="38" rx="8" fill="#EAF7F1" stroke="#BFE5D1"/>
+  <text x="88" y="619" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#1C8D58">Privacy boundary: the selected file, decoded frames, canvas stream, and exported blob remain inside the user's browser session.</text>
+</svg>

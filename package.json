@@ -1,0 +1,21 @@
+{
+  "name": "frameforge-upscaler",
+  "version": "1.0.0",
+  "description": "Local-first browser video upscaler for previewing and exporting enhanced clips.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check:paths": "node scripts/check-local-paths.mjs",
+    "check": "npm run build && npm run check:paths"
+  },
+  "keywords": [
+    "video",
+    "upscaler",
+    "browser",
+    "mediarecorder",
+    "canvas"
+  ],
+  "author": "Yashraj Nayak",
+  "license": "MIT"
+}

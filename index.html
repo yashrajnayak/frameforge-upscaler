@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FrameForge is a local-first browser video upscaler for previewing and exporting enhanced clips without uploads.">
+    <meta property="og:title" content="FrameForge">
+    <meta property="og:description" content="Upscale and enhance video locally in your browser.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#f7fafc">
+    <title>FrameForge</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand" aria-label="FrameForge home">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>FrameForge</span>
+      </div>
+      <div class="topbar-actions">
+        <span id="supportPill" class="status-pill">Checking browser</span>
+        <a class="ghost-link" href="https://github.com/yashrajnayak/frameforge-upscaler" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main class="workspace" aria-live="polite">
+      <aside class="panel source-panel" aria-label="Source and settings">
+        <section class="panel-section">
+          <h1>Upscale a video locally</h1>
+          <p class="muted">Choose a clip, preview the enhancement, then export a new file from this browser.</p>
+          <label class="drop-zone" id="dropZone">
+            <input id="fileInput" type="file" accept="video/*">
+            <span class="drop-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-label="">
+                <path d="M12 3v12m0-12 4 4m-4-4-4 4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+              </svg>
+            </span>
+            <span class="drop-title">Choose video</span>
+            <span class="drop-hint">or drop a file here</span>
+          </label>
+        </section>
+
+        <section class="panel-section file-card" id="fileCard" hidden>
+          <h2>Source</h2>
+          <dl class="metadata-grid">
+            <div>
+              <dt>Name</dt>
+              <dd id="fileName">-</dd>
+            </div>
+            <div>
+              <dt>Size</dt>
+              <dd id="fileSize">-</dd>
+            </div>
+            <div>
+              <dt>Resolution</dt>
+              <dd id="sourceResolution">-</dd>
+            </div>
+            <div>
+              <dt>Duration</dt>
+              <dd id="sourceDuration">-</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel-section">
+          <h2>Enhancement</h2>
+          <label class="field">
+            <span>Scale</span>
+            <select id="scaleSelect">
+              <option value="1.5">1.5x</option>
+              <option value="2" selected>2x</option>
+              <option value="3">3x</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Look</span>
+            <select id="presetSelect">
+              <option value="natural" selected>Natural</option>
+              <option value="crisp">Crisp edges</option>
+              <option value="soft">Soft cleanup</option>
+            </select>
+          </label>
+          <label class="range-field">
+            <span>Sharpness <output id="sharpnessValue">24</output></span>
+            <input id="sharpnessRange" type="range" min="0" max="60" value="24">
+          </label>
+          <label class="range-field">
+            <span>Contrast <output id="contrastValue">6</output></span>
+            <input id="contrastRange" type="range" min="0" max="20" value="6">
+          </label>
+        </section>
+
+        <section class="panel-section">
+          <h2>Export</h2>
+          <label class="field">
+            <span>Frame rate</span>
+            <select id="fpsSelect">
+              <option value="24">24 fps</option>
+              <option value="30" selected>30 fps</option>
+              <option value="60">60 fps</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Bitrate</span>
+            <select id="bitrateSelect">
+              <option value="6000000">Compact</option>
+              <option value="12000000" selected>Balanced</option>
+              <option value="24000000">High</option>
+            </select>
+          </label>
+          <label class="check-field">
+            <input id="audioCheck" type="checkbox" checked>
+            <span>Try to keep source audio</span>
+          </label>
+        </section>
+      </aside>
+
+      <section class="stage-panel" aria-label="Video preview">
+        <div class="stage-header">
+          <div>
+            <h2>Preview</h2>
+            <p id="previewHint">Load a video to compare the original and enhanced frames.</p>
+          </div>
+          <div class="stage-tools">
+            <button id="previewButton" class="icon-button" type="button" title="Play preview" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+            <button id="resetButton" class="icon-button" type="button" title="Reset video" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="compareStage" class="compare-stage empty">
+          <canvas id="beforeCanvas" width="1280" height="720" aria-label="Original video frame"></canvas>
+          <div id="afterLayer" class="after-layer">
+            <canvas id="afterCanvas" width="1280" height="720" aria-label="Enhanced video frame"></canvas>
+          </div>
+          <div id="divider" class="divider" aria-hidden="true"></div>
+          <div class="empty-state" id="emptyState">
+            <span class="empty-glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/>
+                <path d="m10 9 5 3-5 3z"/>
+              </svg>
+            </span>
+            <span>No video loaded</span>
+          </div>
+          <input id="compareRange" class="compare-range" type="range" min="0" max="100" value="50" aria-label="Before after comparison">
+        </div>
+
+        <div class="resolution-strip" id="resolutionStrip">
+          <span>Output resolution</span>
+          <strong id="outputResolution">-</strong>
+        </div>
+      </section>
+
+      <aside class="panel export-panel" aria-label="Export controls">
+        <section class="panel-section">
+          <h2>Render</h2>
+          <p id="renderSummary" class="muted">The export runs locally and records the enhanced canvas in real time.</p>
+          <button id="startButton" class="primary-button" type="button" disabled>Start export</button>
+          <div class="button-row">
+            <button id="pauseButton" class="secondary-button" type="button" disabled>Pause</button>
+            <button id="cancelButton" class="secondary-button danger" type="button" disabled>Cancel</button>
+          </div>
+        </section>
+
+        <section class="panel-section progress-section">
+          <div class="progress-label">
+            <span id="statusText">Idle</span>
+            <strong id="progressText">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <dl class="metadata-grid compact">
+            <div>
+              <dt>Elapsed</dt>
+              <dd id="elapsedTime">00:00</dd>
+            </div>
+            <div>
+              <dt>ETA</dt>
+              <dd id="etaTime">-</dd>
+            </div>
+            <div>
+              <dt>Format</dt>
+              <dd id="formatText">-</dd>
+            </div>
+            <div>
+              <dt>Audio</dt>
+              <dd id="audioText">-</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel-section result-section" id="resultSection" hidden>
+          <h2>Result</h2>
+          <p id="resultMeta" class="muted">Export ready.</p>
+          <a id="downloadLink" class="download-button" download>Download video</a>
+        </section>
+
+        <section class="panel-section issue-section" id="issueSection" hidden>
+          <h2>Needs attention</h2>
+          <p id="issueText"></p>
+        </section>
+      </aside>
+    </main>
+
+    <video id="sourceVideo" playsinline muted preload="metadata"></video>
+    <canvas id="exportCanvas" width="1280" height="720"></canvas>
+    <canvas id="scratchCanvas" width="1280" height="720"></canvas>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
