@@ -53,16 +53,18 @@ const afterCtx = dom.afterCanvas.getContext('2d', { alpha: false });
 const exportCtx = dom.exportCanvas.getContext('2d', { alpha: false });
 const scratchCtx = dom.scratchCanvas.getContext('2d', { alpha: false });
 const DEFAULT_MIME_CANDIDATES = [
+  'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
+  'video/mp4',
   'video/webm;codecs=vp9,opus',
   'video/webm;codecs=vp8,opus',
-  'video/webm',
-  'video/mp4'
+  'video/webm'
 ];
 const VIDEO_ONLY_MIME_CANDIDATES = [
+  'video/mp4;codecs=avc1.42E01E',
+  'video/mp4',
   'video/webm;codecs=vp9',
   'video/webm;codecs=vp8',
-  'video/webm',
-  'video/mp4'
+  'video/webm'
 ];
 
 const state = {

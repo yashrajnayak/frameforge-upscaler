@@ -26,7 +26,7 @@ The app is designed around a browser-only boundary. The selected file becomes a 
 
 ## Browser Support
 
-FrameForge works best in current desktop browsers with `MediaRecorder` and `canvas.captureStream()` support. Chrome and Edge usually provide the smoothest export path. Some browsers may export WebM instead of MP4, and audio passthrough depends on whether the browser exposes audio tracks from the source video stream.
+FrameForge works best in current desktop browsers with `MediaRecorder` and `canvas.captureStream()` support. Chrome and Edge usually provide the smoothest export path. The app prefers MP4 recording when the browser supports it, then falls back to WebM. Audio passthrough depends on whether the browser exposes audio tracks from the source video stream.
 
 The app checks these capabilities at runtime. If a browser cannot record the enhanced canvas, the UI stays readable and explains what is missing instead of hanging during export.
 
