@@ -1,67 +1,88 @@
 <svg width="1440" height="840" viewBox="0 0 1440 840" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">FrameForge app preview</title>
-  <desc id="desc">A clean browser video upscaler interface with source settings, before and after preview, and export status.</desc>
-  <rect width="1440" height="840" fill="#F7FAFC"/>
-  <rect x="40" y="38" width="1360" height="764" rx="8" fill="white" stroke="#D9E5E9"/>
-  <rect x="40" y="38" width="1360" height="68" rx="8" fill="#FBFDFE"/>
-  <rect x="64" y="56" width="34" height="34" rx="8" fill="#12252D"/>
-  <text x="75" y="79" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#DFF9FD">F</text>
-  <text x="112" y="80" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#172026">FrameForge</text>
-  <rect x="1200" y="58" width="94" height="30" rx="8" fill="#EAF7F1" stroke="#BFE5D1"/>
-  <text x="1218" y="78" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#1C8D58">Ready</text>
-  <rect x="64" y="130" width="280" height="636" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
-  <text x="88" y="170" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#172026">Upscale locally</text>
-  <text x="88" y="200" font-family="Inter, Arial, sans-serif" font-size="14" fill="#60717A">Choose a clip, preview, export.</text>
-  <rect x="88" y="228" width="232" height="128" rx="8" fill="#F6FBFC" stroke="#ABC5CE" stroke-dasharray="7 7"/>
-  <circle cx="204" cy="275" r="23" fill="#E7F5F7"/>
-  <path d="M204 256V293M204 256L218 270M204 256L190 270" stroke="#0C8EA0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="157" y="326" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#172026">Choose video</text>
-  <line x1="88" y1="394" x2="320" y2="394" stroke="#D9E5E9"/>
-  <text x="88" y="430" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#172026">Enhancement</text>
-  <rect x="88" y="454" width="232" height="36" rx="8" fill="#F9FCFD" stroke="#D9E5E9"/>
-  <text x="104" y="477" font-family="Inter, Arial, sans-serif" font-size="13" fill="#60717A">Scale</text>
-  <text x="265" y="477" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#172026">2x</text>
-  <rect x="88" y="506" width="232" height="36" rx="8" fill="#F9FCFD" stroke="#D9E5E9"/>
-  <text x="104" y="529" font-family="Inter, Arial, sans-serif" font-size="13" fill="#60717A">Look</text>
-  <text x="238" y="529" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#172026">Natural</text>
-  <rect x="88" y="582" width="232" height="8" rx="4" fill="#E4EEF2"/>
-  <rect x="88" y="582" width="116" height="8" rx="4" fill="#0C8EA0"/>
-  <text x="88" y="568" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#172026">Sharpness</text>
-  <line x1="88" y1="626" x2="320" y2="626" stroke="#D9E5E9"/>
-  <text x="88" y="662" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#172026">Export</text>
-  <rect x="88" y="686" width="232" height="40" rx="8" fill="#0C8EA0"/>
-  <text x="165" y="711" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="white">Start export</text>
-  <rect x="368" y="130" width="704" height="636" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
-  <text x="392" y="170" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#172026">Preview</text>
-  <text x="392" y="194" font-family="Inter, Arial, sans-serif" font-size="13" fill="#60717A">Before and after comparison</text>
-  <rect x="392" y="226" width="656" height="410" rx="8" fill="#12252D"/>
-  <path d="M392 226H720V636H392V226Z" fill="#20343C"/>
-  <path d="M720 226H1048V636H720V226Z" fill="#1A4C56"/>
-  <path d="M512 546C558 460 601 424 652 470C689 503 725 503 762 455C810 393 874 407 926 517" stroke="#6EE6F1" stroke-width="16" stroke-linecap="round" opacity=".45"/>
-  <path d="M514 544C558 484 604 452 650 494C686 527 724 530 766 488C810 443 872 452 924 530" stroke="#DDFBFF" stroke-width="7" stroke-linecap="round"/>
-  <rect x="717" y="226" width="6" height="410" fill="#FFFFFF"/>
-  <circle cx="720" cy="431" r="22" fill="#FFFFFF" stroke="#D9E5E9"/>
-  <path d="M714 431H726" stroke="#0C8EA0" stroke-width="3" stroke-linecap="round"/>
-  <rect x="392" y="668" width="656" height="46" rx="8" fill="#F6FBFC" stroke="#D9E5E9"/>
-  <text x="416" y="697" font-family="Inter, Arial, sans-serif" font-size="13" fill="#60717A">Output resolution</text>
-  <text x="920" y="697" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#172026">3840 x 2160</text>
-  <rect x="1096" y="130" width="280" height="636" rx="8" fill="#FFFFFF" stroke="#D9E5E9"/>
-  <text x="1120" y="170" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#172026">Render</text>
-  <text x="1120" y="196" font-family="Inter, Arial, sans-serif" font-size="13" fill="#60717A">Local canvas export</text>
-  <rect x="1120" y="228" width="232" height="40" rx="8" fill="#0C8EA0"/>
-  <text x="1197" y="253" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="white">Export</text>
-  <text x="1120" y="318" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#172026">Progress</text>
-  <text x="1314" y="318" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#172026">64%</text>
-  <rect x="1120" y="338" width="232" height="10" rx="5" fill="#E4EEF2"/>
-  <rect x="1120" y="338" width="148" height="10" rx="5" fill="#0C8EA0"/>
-  <rect x="1120" y="386" width="102" height="70" rx="8" fill="#F9FCFD" stroke="#D9E5E9"/>
-  <rect x="1250" y="386" width="102" height="70" rx="8" fill="#F9FCFD" stroke="#D9E5E9"/>
-  <text x="1138" y="415" font-family="Inter, Arial, sans-serif" font-size="12" fill="#60717A">Elapsed</text>
-  <text x="1138" y="439" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#172026">01:18</text>
-  <text x="1268" y="415" font-family="Inter, Arial, sans-serif" font-size="12" fill="#60717A">ETA</text>
-  <text x="1268" y="439" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#172026">00:42</text>
-  <rect x="1120" y="512" width="232" height="112" rx="8" fill="#EAF7F1" stroke="#BFE5D1"/>
-  <text x="1144" y="552" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#172026">Result ready</text>
-  <rect x="1144" y="574" width="184" height="34" rx="8" fill="#1C8D58"/>
-  <text x="1188" y="596" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="white">Download</text>
+  <desc id="desc">A minimal local browser video upscaler interface with source controls, a before and after preview, and export progress.</desc>
+  <rect width="1440" height="840" fill="#F5F7FA"/>
+
+  <rect x="24" y="20" width="1392" height="64" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <rect x="48" y="36" width="32" height="32" rx="8" fill="#10212B"/>
+  <text x="58" y="58" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#DFF9FD">F</text>
+  <text x="94" y="59" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="800" fill="#111827">FrameForge</text>
+  <rect x="1236" y="36" width="112" height="32" rx="8" fill="#EFFAF4" stroke="#BFE5D1"/>
+  <circle cx="1252" cy="52" r="4" fill="#128052"/>
+  <text x="1264" y="57" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#128052">Browser ready</text>
+  <rect x="1360" y="36" width="32" height="32" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="1371" y="57" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#667085">GH</text>
+
+  <rect x="24" y="108" width="304" height="704" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="48" y="152" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="800" fill="#111827">Upscale locally</text>
+  <text x="48" y="180" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Choose a clip, preview, export.</text>
+  <rect x="48" y="206" width="256" height="138" rx="8" fill="#F8FBFC" stroke="#A9BDCA" stroke-dasharray="7 7"/>
+  <rect x="154" y="238" width="44" height="44" rx="8" fill="#E6F8FB"/>
+  <path d="M176 249V271M176 249L186 259M176 249L166 259M160 276H192" stroke="#0797B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="130" y="314" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">Choose video</text>
+  <text x="137" y="334" font-family="Inter, Arial, sans-serif" font-size="12" fill="#667085">or drop a file here</text>
+  <rect x="48" y="360" width="256" height="38" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="134" y="384" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#056F88">Try sample clip</text>
+  <line x1="48" y1="430" x2="304" y2="430" stroke="#D8E1E8"/>
+  <text x="48" y="464" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#344054">SOURCE</text>
+  <text x="48" y="496" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#667085">RESOLUTION</text>
+  <text x="206" y="496" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">1920 x 1080</text>
+  <text x="48" y="528" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#667085">DURATION</text>
+  <text x="244" y="528" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">00:06</text>
+  <line x1="48" y1="560" x2="304" y2="560" stroke="#D8E1E8"/>
+  <text x="48" y="594" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#344054">ENHANCEMENT</text>
+  <rect x="48" y="620" width="256" height="36" rx="8" fill="#F8FBFC" stroke="#D8E1E8"/>
+  <text x="64" y="643" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Scale</text>
+  <text x="268" y="643" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">2x</text>
+  <rect x="48" y="670" width="256" height="36" rx="8" fill="#F8FBFC" stroke="#D8E1E8"/>
+  <text x="64" y="693" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Look</text>
+  <text x="246" y="693" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">Natural</text>
+  <text x="48" y="734" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#111827">Sharpness</text>
+  <rect x="48" y="748" width="256" height="9" rx="4.5" fill="#E7EEF3"/>
+  <rect x="48" y="748" width="116" height="9" rx="4.5" fill="#0797B8"/>
+
+  <rect x="344" y="108" width="752" height="704" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="368" y="148" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#344054">PREVIEW</text>
+  <text x="368" y="174" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Before and after comparison</text>
+  <rect x="368" y="204" width="704" height="456" rx="8" fill="#10212B"/>
+  <rect x="368" y="204" width="352" height="456" rx="8" fill="#20313D"/>
+  <rect x="720" y="204" width="352" height="456" rx="8" fill="#0E5665"/>
+  <path d="M410 570C458 486 516 440 580 484C622 514 666 514 714 460C768 400 836 410 908 514C952 578 1004 572 1042 526" stroke="#62DDEB" stroke-width="18" stroke-linecap="round" opacity=".34"/>
+  <path d="M410 570C456 512 516 474 580 512C622 538 670 538 714 494C766 442 836 452 904 536C948 590 1002 586 1042 548" stroke="#E7FDFF" stroke-width="7" stroke-linecap="round"/>
+  <rect x="410" y="236" width="88" height="48" rx="8" fill="#111827" opacity=".74"/>
+  <text x="430" y="258" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">Before</text>
+  <text x="430" y="276" font-family="Inter, Arial, sans-serif" font-size="12" fill="#D8E1E8">1920 x 1080</text>
+  <rect x="936" y="236" width="94" height="48" rx="8" fill="#0797B8"/>
+  <text x="961" y="258" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF">After</text>
+  <text x="954" y="276" font-family="Inter, Arial, sans-serif" font-size="12" fill="#E7FDFF">3840 x 2160</text>
+  <rect x="717" y="204" width="6" height="456" fill="#FFFFFF"/>
+  <circle cx="720" cy="432" r="24" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <path d="M714 432H726" stroke="#0797B8" stroke-width="3" stroke-linecap="round"/>
+  <rect x="368" y="684" width="704" height="52" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="392" y="716" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Output resolution</text>
+  <text x="940" y="716" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#111827">3840 x 2160</text>
+
+  <rect x="1112" y="108" width="304" height="704" rx="8" fill="#FFFFFF" stroke="#D8E1E8"/>
+  <text x="1136" y="148" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#344054">RENDER</text>
+  <text x="1136" y="174" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">Local canvas export</text>
+  <rect x="1136" y="204" width="256" height="42" rx="8" fill="#0797B8"/>
+  <text x="1220" y="230" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">Start export</text>
+  <line x1="1136" y1="286" x2="1392" y2="286" stroke="#D8E1E8"/>
+  <text x="1136" y="322" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">Progress</text>
+  <text x="1358" y="322" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#111827">64%</text>
+  <rect x="1136" y="342" width="256" height="9" rx="4.5" fill="#E7EEF3"/>
+  <rect x="1136" y="342" width="164" height="9" rx="4.5" fill="#0797B8"/>
+  <rect x="1136" y="392" width="118" height="72" rx="8" fill="#F8FBFC" stroke="#D8E1E8"/>
+  <rect x="1274" y="392" width="118" height="72" rx="8" fill="#F8FBFC" stroke="#D8E1E8"/>
+  <text x="1154" y="422" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#667085">ELAPSED</text>
+  <text x="1154" y="446" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">01:18</text>
+  <text x="1292" y="422" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#667085">ETA</text>
+  <text x="1292" y="446" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#111827">00:42</text>
+  <line x1="1136" y1="504" x2="1392" y2="504" stroke="#D8E1E8"/>
+  <text x="1136" y="540" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="800" fill="#344054">RESULT</text>
+  <rect x="1136" y="566" width="256" height="116" rx="8" fill="#EFFAF4" stroke="#BFE5D1"/>
+  <text x="1160" y="606" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="800" fill="#111827">Export ready</text>
+  <text x="1160" y="630" font-family="Inter, Arial, sans-serif" font-size="13" fill="#667085">1.0 MB MP4 file ready.</text>
+  <rect x="1160" y="648" width="208" height="36" rx="8" fill="#128052"/>
+  <text x="1221" y="671" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">Download</text>
 </svg>

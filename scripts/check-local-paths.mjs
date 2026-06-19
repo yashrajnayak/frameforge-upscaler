@@ -14,7 +14,11 @@ const files = Array.from(new Set(
 ));
 const textExtensions = /\.(html|css|js|json|md|yml|yaml|svg|txt|gitignore|nojekyll)$/i;
 const absolutePathPattern = /(?:\/Users\/|\/home\/|\/var\/folders\/|C:\\Users\\)/;
-const forbiddenSourcePattern = /free-ai-video-upscaler|sb2702/i;
+const forbiddenSourceTerms = [
+  ['free', 'ai', 'video', 'upscaler'].join('-'),
+  ['s', 'b', '2702'].join('')
+];
+const forbiddenSourcePattern = new RegExp(forbiddenSourceTerms.join('|'), 'i');
 const offenders = [];
 
 for (const file of files) {

@@ -336,6 +336,7 @@ async function loadFile(file) {
 
     setCanvasSize(dom.beforeCanvas, width, height);
     setCanvasSize(dom.afterCanvas, width, height);
+    dom.compareStage.style.setProperty('--source-aspect', `${width} / ${height}`);
     updateOutputResolution();
 
     dom.fileCard.hidden = false;
