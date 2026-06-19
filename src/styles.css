@@ -230,6 +230,30 @@ svg {
   font-size: 12px;
 }
 
+.sample-button {
+  min-height: 38px;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 760;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.sample-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: rgba(12, 142, 160, 0.32);
+  background: #f5fbfc;
+}
+
+.sample-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
 .metadata-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

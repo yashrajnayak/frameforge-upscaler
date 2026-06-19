@@ -11,6 +11,7 @@ Most quick video cleanup tasks do not need an account, a queue, or a desktop ins
 ## What It Does
 
 - Loads videos through object URLs instead of reading the whole file into memory.
+- Includes a generated sample clip so visitors can test the workflow immediately.
 - Shows a draggable before/after preview using separate canvases.
 - Exports an enhanced canvas stream with `MediaRecorder`.
 - Checks browser support before export and shows recoverable errors in the UI.
@@ -26,6 +27,8 @@ The app is designed around a browser-only boundary. The selected file becomes a 
 ## Browser Support
 
 FrameForge works best in current desktop browsers with `MediaRecorder` and `canvas.captureStream()` support. Chrome and Edge usually provide the smoothest export path. Some browsers may export WebM instead of MP4, and audio passthrough depends on whether the browser exposes audio tracks from the source video stream.
+
+The app checks these capabilities at runtime. If a browser cannot record the enhanced canvas, the UI stays readable and explains what is missing instead of hanging during export.
 
 ## Local Development
 
@@ -45,6 +48,8 @@ The repository includes a GitHub Actions workflow at `.github/workflows/pages.ym
 1. Builds the static site into `dist/`.
 2. Checks for accidental local filesystem paths or stale project references.
 3. Publishes the result with GitHub Pages.
+
+The deployed site is also smoke-tested manually after publish by loading the live URL, checking for missing asset requests, and running a short generated clip through the export path.
 
 ## Notes
 

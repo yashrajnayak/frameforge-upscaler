@@ -2,6 +2,7 @@ const dom = {
   supportPill: document.querySelector('#supportPill'),
   fileInput: document.querySelector('#fileInput'),
   dropZone: document.querySelector('#dropZone'),
+  sampleButton: document.querySelector('#sampleButton'),
   fileCard: document.querySelector('#fileCard'),
   fileName: document.querySelector('#fileName'),
   fileSize: document.querySelector('#fileSize'),
@@ -51,6 +52,18 @@ const beforeCtx = dom.beforeCanvas.getContext('2d', { alpha: false });
 const afterCtx = dom.afterCanvas.getContext('2d', { alpha: false });
 const exportCtx = dom.exportCanvas.getContext('2d', { alpha: false });
 const scratchCtx = dom.scratchCanvas.getContext('2d', { alpha: false });
+const DEFAULT_MIME_CANDIDATES = [
+  'video/webm;codecs=vp9,opus',
+  'video/webm;codecs=vp8,opus',
+  'video/webm',
+  'video/mp4'
+];
+const VIDEO_ONLY_MIME_CANDIDATES = [
+  'video/webm;codecs=vp9',
+  'video/webm;codecs=vp8',
+  'video/webm',
+  'video/mp4'
+];
 
 const state = {
   file: null,
@@ -101,6 +114,7 @@ function wireEvents() {
     const [file] = event.dataTransfer?.files || [];
     if (file) loadFile(file);
   });
+  dom.sampleButton.addEventListener('click', loadSampleClip);
 
   dom.compareRange.addEventListener('input', syncCompareSlider);
 
@@ -163,15 +177,122 @@ function setSupportStatus(report) {
 
 function chooseMimeType() {
   if (!window.MediaRecorder) return '';
+  return DEFAULT_MIME_CANDIDATES.find(type => MediaRecorder.isTypeSupported(type)) || '';
+}
 
-  const candidates = [
-    'video/webm;codecs=vp9,opus',
-    'video/webm;codecs=vp8,opus',
-    'video/webm',
-    'video/mp4'
-  ];
+function chooseVideoOnlyMimeType() {
+  if (!window.MediaRecorder) return '';
+  return VIDEO_ONLY_MIME_CANDIDATES.find(type => MediaRecorder.isTypeSupported(type)) || '';
+}
 
-  return candidates.find(type => MediaRecorder.isTypeSupported(type)) || '';
+async function loadSampleClip() {
+  if (!featureReport.supported) {
+    setSupportStatus(featureReport);
+    return;
+  }
+
+  const originalLabel = dom.sampleButton.textContent;
+  dom.sampleButton.disabled = true;
+  dom.sampleButton.textContent = 'Building sample...';
+
+  try {
+    const sample = await createSampleClip();
+    await loadFile(sample);
+  } catch (error) {
+    showIssue(readableError(error, 'The sample clip could not be created in this browser.'));
+  } finally {
+    dom.sampleButton.disabled = false;
+    dom.sampleButton.textContent = originalLabel;
+  }
+}
+
+async function createSampleClip() {
+  const mimeType = chooseVideoOnlyMimeType();
+  if (!mimeType) {
+    throw new Error('This browser cannot record a sample video.');
+  }
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 320;
+  canvas.height = 180;
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const stream = canvas.captureStream(24);
+  const chunks = [];
+  const recorder = new MediaRecorder(stream, {
+    mimeType,
+    videoBitsPerSecond: 1_200_000
+  });
+
+  recorder.addEventListener('dataavailable', event => {
+    if (event.data?.size) chunks.push(event.data);
+  });
+
+  const stopped = new Promise((resolve, reject) => {
+    recorder.addEventListener('stop', resolve, { once: true });
+    recorder.addEventListener('error', event => reject(event.error || new Error('Sample recorder failed.')), { once: true });
+  });
+
+  recorder.start(120);
+  const frameCount = 64;
+  for (let frame = 0; frame < frameCount; frame += 1) {
+    drawSampleFrame(ctx, canvas.width, canvas.height, frame, frameCount);
+    await new Promise(resolve => setTimeout(resolve, 1000 / 24));
+  }
+  recorder.stop();
+  await stopped;
+  stream.getTracks().forEach(track => track.stop());
+
+  const extension = mimeType.includes('mp4') ? 'mp4' : 'webm';
+  const blob = new Blob(chunks, { type: mimeType });
+  return new File([blob], `frameforge-sample.${extension}`, { type: mimeType });
+}
+
+function drawSampleFrame(ctx, width, height, frame, total) {
+  const t = frame / Math.max(1, total - 1);
+  const sweep = Math.round(t * width);
+
+  const bg = ctx.createLinearGradient(0, 0, width, height);
+  bg.addColorStop(0, '#12252d');
+  bg.addColorStop(1, '#0c5968');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.fillStyle = 'rgba(223, 249, 253, 0.08)';
+  for (let x = -40; x < width + 40; x += 42) {
+    ctx.fillRect(x + Math.sin(t * Math.PI * 2) * 20, 0, 14, height);
+  }
+
+  ctx.strokeStyle = '#6ee6f1';
+  ctx.lineWidth = 14;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  for (let x = 24; x < width - 24; x += 8) {
+    const y = height * 0.58 + Math.sin(x / 28 + t * Math.PI * 2) * 28;
+    if (x === 24) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  ctx.strokeStyle = '#dff9fd';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  for (let x = 24; x < width - 24; x += 8) {
+    const y = height * 0.62 + Math.sin(x / 31 + t * Math.PI * 2) * 18;
+    if (x === 24) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+  ctx.fillRect(sweep - 2, 22, 4, height - 44);
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(40 + t * 220, 55 + Math.sin(t * Math.PI * 4) * 10, 13, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.font = '700 18px system-ui, sans-serif';
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('FrameForge sample', 24, height - 24);
 }
 
 async function loadFile(file) {
